@@ -13,12 +13,25 @@
 			<h1>TradingView Multichart</h1>
 		</div>
 		<div class="row">
-			<div class="tile" id="tradingview_5fd5d"></div>
-			<div class="tile" id="tradingview_d800a"></div>
+			<form role="form">
+				<label>Time Interval: </label>
+				<button class="time" id="time_1m" onclick="setTimeInterval('time_1m', 1)">1m</button>
+				<button class="time" id="time_5m" onclick="setTimeInterval('time_5m', 5)">5m</button>
+				<button class="time" id="time_15m" onclick="setTimeInterval('time_15m', 15)" disabled=true>15m</button>
+				<button class="time" id="time_30m" onclick="setTimeInterval('time_30m', 30)">30m</button>
+				<button class="time" id="time_1h" onclick="setTimeInterval('time_1h', 60)">1h</button>
+				<button class="time" id="time_4h" onclick="setTimeInterval('time_4h', 240)">4h</button>
+				<button class="time" id="time_1d" onclick="setTimeInterval('time_1d', 'D')">1d</button>
+				<button class="time" id="time_1w" onclick="setTimeInterval('time_1w', 'W')">1w</button>
+			</form>
 		</div>
 		<div class="row">
-			<div class="tile" id="tradingview_fbff2"></div>
-			<div class="tile" id="tradingview_1c9ef"></div>
+			<div class="tile" id="tradingview_0"></div>
+			<div class="tile" id="tradingview_1"></div>
+		</div>
+		<div class="row">
+			<div class="tile" id="tradingview_2"></div>
+			<div class="tile" id="tradingview_3"></div>
 		</div>
 		
 		<script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
@@ -36,7 +49,7 @@
 					"enable_publishing": false,
 					"allow_symbol_change": true,
 					"save_image": false,
-					"container_id": "tradingview_5fd5d"
+					"container_id": "tradingview_0"
 				}
 			);
 		</script>
@@ -55,7 +68,7 @@
 					"enable_publishing": false,
 					"allow_symbol_change": true,
 					"save_image": false,
-					"container_id": "tradingview_d800a"
+					"container_id": "tradingview_1"
 				}
 			);
 		</script>
@@ -74,7 +87,7 @@
 					"enable_publishing": false,
 					"allow_symbol_change": true,
 					"save_image": false,
-					"container_id": "tradingview_fbff2"
+					"container_id": "tradingview_2"
 				}
 			);
 		</script>
@@ -93,7 +106,7 @@
 					"enable_publishing": false,
 					"allow_symbol_change": true,
 					"save_image": false,
-					"container_id": "tradingview_1c9ef"
+					"container_id": "tradingview_3"
 				}
 			);
 		</script>

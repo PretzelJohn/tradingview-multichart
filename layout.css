@@ -1,13 +1,15 @@
-h1 {
+body {
 	font-family: Arial, Helvetica, sans-serif;
 }
 
 .row {
 	text-align: center;
+	padding-top: 0px;
+	padding-bottom: 10px;
 }
 
 .tile {
 	display: inline-block;
 	width: 49%;
-	height: 420px;
+	height: 400px;
 }
