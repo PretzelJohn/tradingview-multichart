@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>TradingView Multichart</title>
+	<link type="text/css" rel="stylesheet" href="layout.css">
+	<script type="text/javascript" src="script.js"></script>
+</head>
+<body>	
+	<!-- TradingView Widget BEGIN -->
+	<div class="tradingview-widget-container">
+		<div class="row">
+			<h1>TradingView Multichart</h1>
+		</div>
+		<div class="row">
+			<div class="tile" id="tradingview_5fd5d"></div>
+			<div class="tile" id="tradingview_d800a"></div>
+		</div>
+		<div class="row">
+			<div class="tile" id="tradingview_fbff2"></div>
+			<div class="tile" id="tradingview_1c9ef"></div>
+		</div>
+		
+		<script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+		<script type="text/javascript">
+			new TradingView.widget(
+				{
+					"autosize": true,
+					"symbol": "COINBASE:BTCUSD",
+					"interval": "15",
+					"timezone": "Etc/UTC",
+					"theme": "dark",
+					"style": "1",
+					"locale": "en",
+					"toolbar_bg": "#f1f3f6",
+					"enable_publishing": false,
+					"allow_symbol_change": true,
+					"save_image": false,
+					"container_id": "tradingview_5fd5d"
+				}
+			);
+		</script>
+		
+		<script type="text/javascript">
+			new TradingView.widget(
+				{
+					"autosize": true,
+					"symbol": "COINBASE:XRPUSD",
+					"interval": "15",
+					"timezone": "Etc/UTC",
+					"theme": "dark",
+					"style": "1",
+					"locale": "en",
+					"toolbar_bg": "#f1f3f6",
+					"enable_publishing": false,
+					"allow_symbol_change": true,
+					"save_image": false,
+					"container_id": "tradingview_d800a"
+				}
+			);
+		</script>
+		
+		<script type="text/javascript">
+			new TradingView.widget(
+				{
+					"autosize": true,
+					"symbol": "COINBASE:XTZUSD",
+					"interval": "15",
+					"timezone": "Etc/UTC",
+					"theme": "dark",
+					"style": "1",
+					"locale": "en",
+					"toolbar_bg": "#f1f3f6",
+					"enable_publishing": false,
+					"allow_symbol_change": true,
+					"save_image": false,
+					"container_id": "tradingview_fbff2"
+				}
+			);
+		</script>
+		
+		<script type="text/javascript">
+			new TradingView.widget(
+				{
+					"autosize": true,
+					"symbol": "COINBASE:BATUSDC",
+					"interval": "15",
+					"timezone": "Etc/UTC",
+					"theme": "dark",
+					"style": "1",
+					"locale": "en",
+					"toolbar_bg": "#f1f3f6",
+					"enable_publishing": false,
+					"allow_symbol_change": true,
+					"save_image": false,
+					"container_id": "tradingview_1c9ef"
+				}
+			);
+		</script>
+		
+	</div>
+	<!-- TradingView Widget END -->
+</body>
+</html>	
