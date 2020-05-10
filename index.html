@@ -4,9 +4,9 @@
 	<meta charset="UTF-8">
 	<title>TradingView Multichart</title>
 	<link type="text/css" rel="stylesheet" href="layout.css">
-	<script type="text/javascript" src="script.js"></script>
+	<script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
 </head>
-<body>	
+<body>
 	<!-- TradingView Widget BEGIN -->
 	<div class="tradingview-widget-container">
 		<div class="row">
@@ -15,16 +15,17 @@
 		<div class="row">
 			<form role="form">
 				<label>Time Interval: </label>
-				<button class="time" id="time_1m" onclick="setTimeInterval('time_1m', 1)">1m</button>
-				<button class="time" id="time_5m" onclick="setTimeInterval('time_5m', 5)">5m</button>
-				<button class="time" id="time_15m" onclick="setTimeInterval('time_15m', 15)" disabled=true>15m</button>
-				<button class="time" id="time_30m" onclick="setTimeInterval('time_30m', 30)">30m</button>
-				<button class="time" id="time_1h" onclick="setTimeInterval('time_1h', 60)">1h</button>
-				<button class="time" id="time_4h" onclick="setTimeInterval('time_4h', 240)">4h</button>
-				<button class="time" id="time_1d" onclick="setTimeInterval('time_1d', 'D')">1d</button>
-				<button class="time" id="time_1w" onclick="setTimeInterval('time_1w', 'W')">1w</button>
+				<button class="time" id="time_1m" onclick="setTimeInterval(1)"><b>1m</b></button>
+				<button class="time" id="time_5m" onclick="setTimeInterval(5)"><b>5m</b></button>
+				<button class="time" id="time_15m" onclick="setTimeInterval(15)"><b>15m</b></button>
+				<button class="time" id="time_30m" onclick="setTimeInterval(30)"><b>30m</b></button>
+				<button class="time" id="time_1h" onclick="setTimeInterval(60)"><b>1h</b></button>
+				<button class="time" id="time_4h" onclick="setTimeInterval(240)"><b>4h</b></button>
+				<button class="time" id="time_1d" onclick="setTimeInterval('D')"><b>1d</b></button>
+				<button class="time" id="time_1w" onclick="setTimeInterval('W')"><b>1w</b></button>
 			</form>
 		</div>
+		
 		<div class="row">
 			<div class="tile" id="tradingview_0"></div>
 			<div class="tile" id="tradingview_1"></div>
@@ -34,83 +35,7 @@
 			<div class="tile" id="tradingview_3"></div>
 		</div>
 		
-		<script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-		<script type="text/javascript">
-			new TradingView.widget(
-				{
-					"autosize": true,
-					"symbol": "COINBASE:BTCUSD",
-					"interval": "15",
-					"timezone": "Etc/UTC",
-					"theme": "dark",
-					"style": "1",
-					"locale": "en",
-					"toolbar_bg": "#f1f3f6",
-					"enable_publishing": false,
-					"allow_symbol_change": true,
-					"save_image": false,
-					"container_id": "tradingview_0"
-				}
-			);
-		</script>
-		
-		<script type="text/javascript">
-			new TradingView.widget(
-				{
-					"autosize": true,
-					"symbol": "COINBASE:XRPUSD",
-					"interval": "15",
-					"timezone": "Etc/UTC",
-					"theme": "dark",
-					"style": "1",
-					"locale": "en",
-					"toolbar_bg": "#f1f3f6",
-					"enable_publishing": false,
-					"allow_symbol_change": true,
-					"save_image": false,
-					"container_id": "tradingview_1"
-				}
-			);
-		</script>
-		
-		<script type="text/javascript">
-			new TradingView.widget(
-				{
-					"autosize": true,
-					"symbol": "COINBASE:XTZUSD",
-					"interval": "15",
-					"timezone": "Etc/UTC",
-					"theme": "dark",
-					"style": "1",
-					"locale": "en",
-					"toolbar_bg": "#f1f3f6",
-					"enable_publishing": false,
-					"allow_symbol_change": true,
-					"save_image": false,
-					"container_id": "tradingview_2"
-				}
-			);
-		</script>
-		
-		<script type="text/javascript">
-			new TradingView.widget(
-				{
-					"autosize": true,
-					"symbol": "COINBASE:BATUSDC",
-					"interval": "15",
-					"timezone": "Etc/UTC",
-					"theme": "dark",
-					"style": "1",
-					"locale": "en",
-					"toolbar_bg": "#f1f3f6",
-					"enable_publishing": false,
-					"allow_symbol_change": true,
-					"save_image": false,
-					"container_id": "tradingview_3"
-				}
-			);
-		</script>
-		
+		<script type="text/javascript" src="script.js"></script>
 	</div>
 	<!-- TradingView Widget END -->
 </body>
