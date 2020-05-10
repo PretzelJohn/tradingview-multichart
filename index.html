@@ -12,19 +12,239 @@
 		<div class="row">
 			<h1>TradingView Multichart</h1>
 		</div>
-		<div class="row">
-			<form role="form">
-				<label>Time Interval: </label>
-				<button class="time" id="time_1m" onclick="setTimeInterval(1)"><b>1m</b></button>
-				<button class="time" id="time_5m" onclick="setTimeInterval(5)"><b>5m</b></button>
-				<button class="time" id="time_15m" onclick="setTimeInterval(15)"><b>15m</b></button>
-				<button class="time" id="time_30m" onclick="setTimeInterval(30)"><b>30m</b></button>
-				<button class="time" id="time_1h" onclick="setTimeInterval(60)"><b>1h</b></button>
-				<button class="time" id="time_4h" onclick="setTimeInterval(240)"><b>4h</b></button>
-				<button class="time" id="time_1d" onclick="setTimeInterval('D')"><b>1d</b></button>
-				<button class="time" id="time_1w" onclick="setTimeInterval('W')"><b>1w</b></button>
-			</form>
-		</div>
+		<form>
+			<fieldset>
+				<legend>Options:</legend>
+				<p>
+					<label>Chart A</label>
+					<select onchange="setSymbol(0, this.value)">
+						<option value="" selected="selected" disabled hidden>SELECT MARKET: </option>
+						<option value="BTCUSD">BTC-USD</option>
+						<option value="ETHUSD">ETH-USD</option>
+						<option value="XRPUSD">XRP-USD</option>
+						<option value="LTCUSD">LTC-USD</option>
+						<option value="BCHUSD">BCH-USD</option>
+						<option value="EOSUSD">EOS-USD</option>
+						<option value="DASHUSD">DASH-USD</option>
+						<option value="OXTUSD">OXT-USD</option>
+						<option value="XLMUSD">XLM-USD</option>
+						<option value="ATOMUSD">ATOM-USD</option>
+						<option value="XTZUSD">XTZ-USD</option>
+						<option value="ETCUSD">ETC-USD</option>
+						<option value="LINKUSD">LINK-USD</option>
+						<option value="REPUSD">REP-USD</option>
+						<option value="ZRXUSD">ZRX-USD</option>
+						<option value="ALGOUSD">ALGO-USD</option>
+						<option value="DAIUSD">DAI-USD</option>
+						<option value="KNCUSD">KNC-USD</option>
+						<option disabled>---------</option>
+						<option value="BTCUSDC">BTC-USDC</option>
+						<option value="ETHUSDC">ETH-USDC</option>
+						<option value="ZECUSDC">ZEC-USDC</option>
+						<option value="BATUSDC">BAT-USDC</option>
+						<option value="DAIUSDC">DAI-USDC</option>
+						<option value="GNTUSDC">GNT-USDC</option>
+						<option value="MANAUSDC">MANA-USDC</option>
+						<option value="LOOMUSDC">LOOM-USDC</option>
+						<option value="CVCUSDC">CVC-USDC</option>
+						<option value="DNTUSDC">DNT-USDC</option>
+						<option disabled>---------</option>
+						<option value="ETHBTC">ETH-BTC</option>
+						<option value="XRPBTC">XRP-BTC</option>
+						<option value="LTCBTC">LTC-BTC</option>
+						<option value="BCHBTC">BCH-BTC</option>
+						<option value="EOSBTC">EOS-BTC</option>
+						<option value="DASHBTC">DASH-BTC</option>
+						<option value="XLMBTC">XLM-BTC</option>
+						<option value="ATOMBTC">ATOM-BTC</option>
+						<option value="XTZBTC">XTZ-BTC</option>
+						<option value="ETCBTC">ETC-BTC</option>
+						<option value="ZECBTC">ZEC-BTC</option>
+						<option value="REPBTC">REP-BTC</option>
+						<option value="ZRXBTC">ZRX-BTC</option>
+						<option value="KNCBTC">KNC-BTC</option>
+						<option disabled>---------</option>
+						<option value="ETHDAI">ETH-DAI</option>
+						<option disabled>---------</option>
+						<option value="LINKETH">LINK-ETH</option>
+						<option value="BATETH">BAT-ETH</option>
+					</select>
+						
+					<select onchange="setSymbol(1, this.value)">
+						<option value="" selected="selected" disabled hidden>SELECT MARKET: </option>
+						<option value="BTCUSD">BTC-USD</option>
+						<option value="ETHUSD">ETH-USD</option>
+						<option value="XRPUSD">XRP-USD</option>
+						<option value="LTCUSD">LTC-USD</option>
+						<option value="BCHUSD">BCH-USD</option>
+						<option value="EOSUSD">EOS-USD</option>
+						<option value="DASHUSD">DASH-USD</option>
+						<option value="OXTUSD">OXT-USD</option>
+						<option value="XLMUSD">XLM-USD</option>
+						<option value="ATOMUSD">ATOM-USD</option>
+						<option value="XTZUSD">XTZ-USD</option>
+						<option value="ETCUSD">ETC-USD</option>
+						<option value="LINKUSD">LINK-USD</option>
+						<option value="REPUSD">REP-USD</option>
+						<option value="ZRXUSD">ZRX-USD</option>
+						<option value="ALGOUSD">ALGO-USD</option>
+						<option value="DAIUSD">DAI-USD</option>
+						<option value="KNCUSD">KNC-USD</option>
+						<option disabled>---------</option>
+						<option value="BTCUSDC">BTC-USDC</option>
+						<option value="ETHUSDC">ETH-USDC</option>
+						<option value="ZECUSDC">ZEC-USDC</option>
+						<option value="BATUSDC">BAT-USDC</option>
+						<option value="DAIUSDC">DAI-USDC</option>
+						<option value="GNTUSDC">GNT-USDC</option>
+						<option value="MANAUSDC">MANA-USDC</option>
+						<option value="LOOMUSDC">LOOM-USDC</option>
+						<option value="CVCUSDC">CVC-USDC</option>
+						<option value="DNTUSDC">DNT-USDC</option>
+						<option disabled>---------</option>
+						<option value="ETHBTC">ETH-BTC</option>
+						<option value="XRPBTC">XRP-BTC</option>
+						<option value="LTCBTC">LTC-BTC</option>
+						<option value="BCHBTC">BCH-BTC</option>
+						<option value="EOSBTC">EOS-BTC</option>
+						<option value="DASHBTC">DASH-BTC</option>
+						<option value="XLMBTC">XLM-BTC</option>
+						<option value="ATOMBTC">ATOM-BTC</option>
+						<option value="XTZBTC">XTZ-BTC</option>
+						<option value="ETCBTC">ETC-BTC</option>
+						<option value="ZECBTC">ZEC-BTC</option>
+						<option value="REPBTC">REP-BTC</option>
+						<option value="ZRXBTC">ZRX-BTC</option>
+						<option value="KNCBTC">KNC-BTC</option>
+						<option disabled>---------</option>
+						<option value="ETHDAI">ETH-DAI</option>
+						<option disabled>---------</option>
+						<option value="LINKETH">LINK-ETH</option>
+						<option value="BATETH">BAT-ETH</option>
+					</select>
+					<label>Chart B</label>
+				</p>
+				<p>
+					<label>Chart C</label>
+					<select onchange="setSymbol(2, this.value)">
+						<option value="" selected="selected" disabled hidden>SELECT MARKET: </option>
+						<option value="BTCUSD">BTC-USD</option>
+						<option value="ETHUSD">ETH-USD</option>
+						<option value="XRPUSD">XRP-USD</option>
+						<option value="LTCUSD">LTC-USD</option>
+						<option value="BCHUSD">BCH-USD</option>
+						<option value="EOSUSD">EOS-USD</option>
+						<option value="DASHUSD">DASH-USD</option>
+						<option value="OXTUSD">OXT-USD</option>
+						<option value="XLMUSD">XLM-USD</option>
+						<option value="ATOMUSD">ATOM-USD</option>
+						<option value="XTZUSD">XTZ-USD</option>
+						<option value="ETCUSD">ETC-USD</option>
+						<option value="LINKUSD">LINK-USD</option>
+						<option value="REPUSD">REP-USD</option>
+						<option value="ZRXUSD">ZRX-USD</option>
+						<option value="ALGOUSD">ALGO-USD</option>
+						<option value="DAIUSD">DAI-USD</option>
+						<option value="KNCUSD">KNC-USD</option>
+						<option disabled>---------</option>
+						<option value="BTCUSDC">BTC-USDC</option>
+						<option value="ETHUSDC">ETH-USDC</option>
+						<option value="ZECUSDC">ZEC-USDC</option>
+						<option value="BATUSDC">BAT-USDC</option>
+						<option value="DAIUSDC">DAI-USDC</option>
+						<option value="GNTUSDC">GNT-USDC</option>
+						<option value="MANAUSDC">MANA-USDC</option>
+						<option value="LOOMUSDC">LOOM-USDC</option>
+						<option value="CVCUSDC">CVC-USDC</option>
+						<option value="DNTUSDC">DNT-USDC</option>
+						<option disabled>---------</option>
+						<option value="ETHBTC">ETH-BTC</option>
+						<option value="XRPBTC">XRP-BTC</option>
+						<option value="LTCBTC">LTC-BTC</option>
+						<option value="BCHBTC">BCH-BTC</option>
+						<option value="EOSBTC">EOS-BTC</option>
+						<option value="DASHBTC">DASH-BTC</option>
+						<option value="XLMBTC">XLM-BTC</option>
+						<option value="ATOMBTC">ATOM-BTC</option>
+						<option value="XTZBTC">XTZ-BTC</option>
+						<option value="ETCBTC">ETC-BTC</option>
+						<option value="ZECBTC">ZEC-BTC</option>
+						<option value="REPBTC">REP-BTC</option>
+						<option value="ZRXBTC">ZRX-BTC</option>
+						<option value="KNCBTC">KNC-BTC</option>
+						<option disabled>---------</option>
+						<option value="ETHDAI">ETH-DAI</option>
+						<option disabled>---------</option>
+						<option value="LINKETH">LINK-ETH</option>
+						<option value="BATETH">BAT-ETH</option>
+					</select>
+							
+					<select onchange="setSymbol(3, this.value)">
+						<option value="" selected="selected" disabled hidden>SELECT MARKET: </option>
+						<option value="BTCUSD">BTC-USD</option>
+						<option value="ETHUSD">ETH-USD</option>
+						<option value="XRPUSD">XRP-USD</option>
+						<option value="LTCUSD">LTC-USD</option>
+						<option value="BCHUSD">BCH-USD</option>
+						<option value="EOSUSD">EOS-USD</option>
+						<option value="DASHUSD">DASH-USD</option>
+						<option value="OXTUSD">OXT-USD</option>
+						<option value="XLMUSD">XLM-USD</option>
+						<option value="ATOMUSD">ATOM-USD</option>
+						<option value="XTZUSD">XTZ-USD</option>
+						<option value="ETCUSD">ETC-USD</option>
+						<option value="LINKUSD">LINK-USD</option>
+						<option value="REPUSD">REP-USD</option>
+						<option value="ZRXUSD">ZRX-USD</option>
+						<option value="ALGOUSD">ALGO-USD</option>
+						<option value="DAIUSD">DAI-USD</option>
+						<option value="KNCUSD">KNC-USD</option>
+						<option disabled>---------</option>
+						<option value="BTCUSDC">BTC-USDC</option>
+						<option value="ETHUSDC">ETH-USDC</option>
+						<option value="ZECUSDC">ZEC-USDC</option>
+						<option value="BATUSDC">BAT-USDC</option>
+						<option value="DAIUSDC">DAI-USDC</option>
+						<option value="GNTUSDC">GNT-USDC</option>
+						<option value="MANAUSDC">MANA-USDC</option>
+						<option value="LOOMUSDC">LOOM-USDC</option>
+						<option value="CVCUSDC">CVC-USDC</option>
+						<option value="DNTUSDC">DNT-USDC</option>
+						<option disabled>---------</option>
+						<option value="ETHBTC">ETH-BTC</option>
+						<option value="XRPBTC">XRP-BTC</option>
+						<option value="LTCBTC">LTC-BTC</option>
+						<option value="BCHBTC">BCH-BTC</option>
+						<option value="EOSBTC">EOS-BTC</option>
+						<option value="DASHBTC">DASH-BTC</option>
+						<option value="XLMBTC">XLM-BTC</option>
+						<option value="ATOMBTC">ATOM-BTC</option>
+						<option value="XTZBTC">XTZ-BTC</option>
+						<option value="ETCBTC">ETC-BTC</option>
+						<option value="ZECBTC">ZEC-BTC</option>
+						<option value="REPBTC">REP-BTC</option>
+						<option value="ZRXBTC">ZRX-BTC</option>
+						<option value="KNCBTC">KNC-BTC</option>
+						<option disabled>---------</option>
+						<option value="ETHDAI">ETH-DAI</option>
+						<option disabled>---------</option>
+						<option value="LINKETH">LINK-ETH</option>
+						<option value="BATETH">BAT-ETH</option>
+					</select>
+					<label>Chart D</label>
+				</p>
+					<label>Time Interval: </label>
+					<button class="time" id="time_1m" onclick="setTimeInterval(1)"><b>1m</b></button>
+					<button class="time" id="time_5m" onclick="setTimeInterval(5)"><b>5m</b></button>
+					<button class="time" id="time_15m" onclick="setTimeInterval(15)"><b>15m</b></button>
+					<button class="time" id="time_30m" onclick="setTimeInterval(30)"><b>30m</b></button>
+					<button class="time" id="time_1h" onclick="setTimeInterval(60)"><b>1h</b></button>
+					<button class="time" id="time_4h" onclick="setTimeInterval(240)"><b>4h</b></button>
+					<button class="time" id="time_1d" onclick="setTimeInterval('D')"><b>1d</b></button>
+					<button class="time" id="time_1w" onclick="setTimeInterval('W')"><b>1w</b></button>
+				<p>						
+			</fieldset>
+		</form>
 		
 		<div class="row">
 			<div class="tile" id="tradingview_0"></div>
