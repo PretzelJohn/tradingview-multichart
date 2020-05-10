@@ -5,7 +5,7 @@ var sym2 = new Cookie("symbol_2");
 var sym3 = new Cookie("symbol_3");
 var cookies = [sym0, sym1, sym2, sym3];
 
-var interval = readCookie(intv, 15);
+var interval = intv.get() || 15;
 var s0 = sym0.get() || "BTCUSD";
 var s1 = sym1.get() || "XRPUSD";
 var s2 = sym2.get() || "XTZUSD";
