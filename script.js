@@ -7,10 +7,8 @@ var cookies = [sym0, sym1, sym2, sym3];
 
 function readCookie(cookie, defValue) {
 	var res = defValue;
-	if(cookie.check()) {
+	if(cookie.check())
 		res = cookie.get();
-		alert(res);
-	}
 	cookie.set(res);
 	return res;
 }
