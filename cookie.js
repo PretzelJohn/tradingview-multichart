@@ -4,13 +4,20 @@ class Cookie {
 		this.exdays = exdays;
 	}
 	
+	clear() {
+		var tmp = this.exdays;
+		this.exdays = -1;
+		this.set("");
+		this.exdays = tmp;
+	}
+	
 	set(value) {
 		var d = new Date();
 		d.setTime(d.getTime() + (this.exdays*86400000));
 		var expires = "expires="+d.toUTCString();
-		document.cookie = this.name+"="+this.value+";"+expires+";path=/";
+		document.cookie = this.name+"="+value+";"+expires+";path=/";
 	}
-
+	
 	get() {
 		var nm = this.name+"=";
 		var dc = decodeURIComponent(document.cookie);
@@ -25,12 +32,5 @@ class Cookie {
 			}
 		}
 		return "";
-	}
-	
-	check(){
-		console.log(this.get());
-		if(this.get() == "")
-			return false;
-		return true;
 	}
 }
