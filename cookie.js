@@ -21,14 +21,15 @@ class Cookie {
 				c = c.substring(1);
 			}
 			if(c.indexOf(nm) == 0) {
-				return ""+c.substring(nm.length, c.length);
+				return c.substring(nm.length, c.length);
 			}
 		}
-		return "NULL";
+		return "";
 	}
 	
 	check(){
-		if(this.get() == "NULL")
+		console.log(this.get());
+		if(this.get() == "")
 			return false;
 		return true;
 	}

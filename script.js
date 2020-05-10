@@ -5,21 +5,11 @@ var sym2 = new Cookie("symbol_2");
 var sym3 = new Cookie("symbol_3");
 var cookies = [sym0, sym1, sym2, sym3];
 
-function readCookie(cookie, defValue) {
-	var res = defValue;
-	if(cookie.check()) {
-		res = cookie.get();
-		alert(res);
-	}
-	cookie.set(res);
-	return res;
-}
-
 var interval = readCookie(intv, 15);
-var s0 = readCookie(sym0, "BTCUSD");
-var s1 = readCookie(sym1, "XRPUSD");
-var s2 = readCookie(sym2, "XTZUSD");
-var s3 = readCookie(sym3, "BATUSDC");
+var s0 = sym0.get() || "BTCUSD";
+var s1 = sym1.get() || "XRPUSD";
+var s2 = sym2.get() || "XTZUSD";
+var s3 = sym3.get() || "BATUSDC";
 
 var a = new Widget(s0, interval, "tradingview_0");
 var b = new Widget(s1, interval, "tradingview_1");
