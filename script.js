@@ -48,6 +48,7 @@ function loadDropbox(id) {
 					<option value="ATOMUSD">ATOM-USD</option>\
 					<option value="XTZUSD">XTZ-USD</option>\
 					<option value="ETCUSD">ETC-USD</option>\
+					<option value="OMGUSD">OMG-USD</option>\
 					<option value="LINKUSD">LINK-USD</option>\
 					<option value="REPUSD">REP-USD</option>\
 					<option value="ZRXUSD">ZRX-USD</option>\
@@ -76,6 +77,7 @@ function loadDropbox(id) {
 					<option value="ATOMBTC">ATOM-BTC</option>\
 					<option value="XTZBTC">XTZ-BTC</option>\
 					<option value="ETCBTC">ETC-BTC</option>\
+					<option value="OMGBTC">OMG-BTC</option>\
 					<option value="ZECBTC">ZEC-BTC</option>\
 					<option value="REPBTC">REP-BTC</option>\
 					<option value="ZRXBTC">ZRX-BTC</option>\
