@@ -14,20 +14,14 @@ fieldset {
 	min-width: 500px;
 }
 
-h1 {
-	padding-top: 10px;
-	line-height: 0em;
-}
-
 .row {
 	min-width: 500px;
 	text-align: center;
-	padding: 5px;
 }
 
 .tile {
 	display: inline-block;
 	padding: 0px;
 	width: 49%;
-	height: 360px;
+	height: 38vh;
 }

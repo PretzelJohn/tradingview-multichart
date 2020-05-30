@@ -13,7 +13,11 @@ class Widget {
 				"autosize": true,
 				"symbol": sym,
 				"interval": this.interval,
+				"timezone": "Etc/UTC",
 				"theme": "dark",
+				"style": "1",
+				"locale": "en",
+				"enable_publishing": false,
 				"save_image": false,
 				"container_id": this.container
 			}
