@@ -33,60 +33,44 @@ function setTimeInterval(x) {
 	intv.set(x);
 }
 
-function loadDropbox(id) {
+function loadProducts() {
+	var products = {"USD":[], "USDC":[], "BTC":[]};
+	const url = "https://api.pro.coinbase.com/products";
+	var xhttp = new XMLHttpRequest();
+	var res = null;
+	xhttp.onreadystatechange = function() {
+		if(this.readyState == 4 && this.status == 200)
+			res = JSON.parse(this.responseText);
+	};
+	xhttp.open("GET", url, false);
+	xhttp.send();
+	
+	for(var i = 0; i < res.length; i++) {
+		var parts = res[i]["display_name"].split("/");
+		if(parts[1] != "EUR" && parts[1] != "GBP"){
+			if(products[parts[1]] == null)
+				products[parts[1]] = [parts[0]+"-"+parts[1]];
+			else
+				products[parts[1]].push(parts[0]+"-"+parts[1]);
+		}
+	}
+	
+	var html = '<option value="" selected="selected" disabled hidden>SELECT MARKET: </option>';
+	for(var k in products) {
+		products[k].sort();
+		for(var i = 0; i < products[k].length; i++) {
+			var product = products[k][i];
+			html += '\n<option value="'+product.replace("-","")+'">'+product+'</option>';
+		}
+		html += '\n<option disabled>---------</option>';
+	}
+	return html;
+}
+
+const html = loadProducts();
+function loadDropbox(id) {	
 	var x = document.getElementById(id);
-	x.innerHTML = '<option value="" selected="selected" disabled hidden>SELECT MARKET: </option>\
-					<option value="BTCUSD">BTC-USD</option>\
-					<option value="ETHUSD">ETH-USD</option>\
-					<option value="XRPUSD">XRP-USD</option>\
-					<option value="LTCUSD">LTC-USD</option>\
-					<option value="BCHUSD">BCH-USD</option>\
-					<option value="EOSUSD">EOS-USD</option>\
-					<option value="DASHUSD">DASH-USD</option>\
-					<option value="OXTUSD">OXT-USD</option>\
-					<option value="XLMUSD">XLM-USD</option>\
-					<option value="ATOMUSD">ATOM-USD</option>\
-					<option value="XTZUSD">XTZ-USD</option>\
-					<option value="ETCUSD">ETC-USD</option>\
-					<option value="OMGUSD">OMG-USD</option>\
-					<option value="LINKUSD">LINK-USD</option>\
-					<option value="REPUSD">REP-USD</option>\
-					<option value="ZRXUSD">ZRX-USD</option>\
-					<option value="ALGOUSD">ALGO-USD</option>\
-					<option value="DAIUSD">DAI-USD</option>\
-					<option value="KNCUSD">KNC-USD</option>\
-					<option disabled>---------</option>\
-					<option value="BTCUSDC">BTC-USDC</option>\
-					<option value="ETHUSDC">ETH-USDC</option>\
-					<option value="ZECUSDC">ZEC-USDC</option>\
-					<option value="BATUSDC">BAT-USDC</option>\
-					<option value="DAIUSDC">DAI-USDC</option>\
-					<option value="GNTUSDC">GNT-USDC</option>\
-					<option value="MANAUSDC">MANA-USDC</option>\
-					<option value="LOOMUSDC">LOOM-USDC</option>\
-					<option value="CVCUSDC">CVC-USDC</option>\
-					<option value="DNTUSDC">DNT-USDC</option>\
-					<option disabled>---------</option>\
-					<option value="ETHBTC">ETH-BTC</option>\
-					<option value="XRPBTC">XRP-BTC</option>\
-					<option value="LTCBTC">LTC-BTC</option>\
-					<option value="BCHBTC">BCH-BTC</option>\
-					<option value="EOSBTC">EOS-BTC</option>\
-					<option value="DASHBTC">DASH-BTC</option>\
-					<option value="XLMBTC">XLM-BTC</option>\
-					<option value="ATOMBTC">ATOM-BTC</option>\
-					<option value="XTZBTC">XTZ-BTC</option>\
-					<option value="ETCBTC">ETC-BTC</option>\
-					<option value="OMGBTC">OMG-BTC</option>\
-					<option value="ZECBTC">ZEC-BTC</option>\
-					<option value="REPBTC">REP-BTC</option>\
-					<option value="ZRXBTC">ZRX-BTC</option>\
-					<option value="KNCBTC">KNC-BTC</option>\
-					<option disabled>---------</option>\
-					<option value="ETHDAI">ETH-DAI</option>\
-					<option disabled>---------</option>\
-					<option value="LINKETH">LINK-ETH</option>\
-					<option value="BATETH">BAT-ETH</option>';
+	x.innerHTML = html;
 	x.onchange = function() {
 		setSymbol(Number(id.split("_")[1]), x.value);
 	}
