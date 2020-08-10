@@ -9,7 +9,80 @@
 	<script type="text/javascript" src="widget.js"></script>
 </head>
 <body>
-	<div class="tradingview-widget-container">
+	<div class="list" id="list">
+		<div class="tradingview-widget-container__widget"></div>
+		<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>{
+			"colorTheme": "dark","dateRange": "1d","showChart": true,"locale": "en","width": "100%","height": "100%","largeChartUrl": "","isTransparent": false,
+			"plotLineColorGrowing": "rgba(25, 118, 210, 1)","plotLineColorFalling": "rgba(25, 118, 210, 1)","gridLineColor": "rgba(42, 46, 57, 1)","scaleFontColor": "rgba(120, 123, 134, 1)","belowLineFillColorGrowing": "rgba(33, 150, 243, 0.12)","belowLineFillColorFalling": "rgba(33, 150, 243, 0.12)","symbolActiveColor": "rgba(33, 150, 243, 0.12)",
+			"tabs": [
+				{"title": "USD","symbols": [
+					{"s": "COINBASE:BTCUSD","d": "Bitcoin"},
+					{"s": "COINBASE:ETHUSD","d": "Ether"},
+					{"s": "COINBASE:XRPUSD","d": "XRP"},
+					{"s": "COINBASE:LTCUSD","d": "Litecoin"},
+					{"s": "COINBASE:BCHUSD","d": "Bitcoin Cash"},
+					{"s": "COINBASE:EOSUSD","d": "EOS"},
+					{"s": "COINBASE:DASHUSD","d": "Dash"},
+					{"s": "COINBASE:OXTUSD","d": "Orchid"},
+					{"s": "COINBASE:MKRUSD","d": "Maker"},
+					{"s": "COINBASE:XLMUSD","d": "Stellar"},
+					{"s": "COINBASE:ATOMUSD","d": "Cosmos"},
+					{"s": "COINBASE:XTZUSD","d": "Tezos"},
+					{"s": "COINBASE:ETCUSD","d": "Ether Classic"},
+					{"s": "COINBASE:OMGUSD","d": "OmiseGO"},
+					{"s": "COINBASE:LINKUSD","d": "Chainlink"},
+					{"s": "COINBASE:REPUSD","d": "Augur"},
+					{"s": "COINBASE:ZRXUSD","d": "0x"},
+					{"s": "COINBASE:ALGOUSD","d": "Algorand"},
+					{"s": "COINBASE:DAIUSD","d": "Dai"},
+					{"s": "COINBASE:KNCUSD","d": "Kyber Network"},
+					{"s": "COINBASE:COMPUSD","d": "Compound"},
+					{"s": "COINBASE:BANDUSD","d": "Band"}
+				]},
+				{"title": "USDC","symbols": [
+					{"s": "COINBASE:BTCUSDC","d": "Bitcoin"},
+					{"s": "COINBASE:ETHUSDC","d": "Ether"},
+					{"s": "COINBASE:ZECUSDC","d": "Zcash"},
+					{"s": "COINBASE:BATUSDC","d": "Basic Attention Token"},
+					{"s": "COINBASE:DAIUSDC","d": "Dai"},
+					{"s": "COINBASE:GNTUSDC","d": "Golem"},
+					{"s": "COINBASE:MANAUSDC","d": "Decentraland"},
+					{"s": "COINBASE:LOOMUSDC","d": "Loom Network"},
+					{"s": "COINBASE:CVCUSDC","d": "Civic"},
+					{"s": "COINBASE:DNTUSDC","d": "district0x"}
+				]},
+				{"title": "BTC","symbols": [
+					{"s": "COINBASE:ETHBTC","d": "Ether"},
+					{"s": "COINBASE:XRPBTC","d": "XRP"},
+					{"s": "COINBASE:LTCBTC","d": "Litecoin"},
+					{"s": "COINBASE:BCHBTC","d": "Bitcoin Cash"},
+					{"s": "COINBASE:EOSBTC","d": "EOS"},
+					{"s": "COINBASE:DASHBTC","d": "Dash"},
+					{"s": "COINBASE:MKRBTC","d": "Maker"},
+					{"s": "COINBASE:XLMBTC","d": "Stellar"},
+					{"s": "COINBASE:ATOMBTC","d": "Cosmos"},
+					{"s": "COINBASE:XTZBTC","d": "Tezos"},
+					{"s": "COINBASE:ETCBTC","d": "Ether Classic"},
+					{"s": "COINBASE:OMGBTC","d": "OmiseGO"},
+					{"s": "COINBASE:ZECBTC","d": "Zcash"},
+					{"s": "COINBASE:REPBTC","d": "Augur"},
+					{"s": "COINBASE:ZRXBTC","d": "0x"},
+					{"s": "COINBASE:KNCBTC","d": "Kyber Network"},
+					{"s": "COINBASE:COMPBTC","d": "Compound]"},
+					{"s": "COINBASE:BANDBTC","d": "Band"}
+				]},
+				{"title": "ETH","symbols": [
+					{"s": "COINBASE:LINKETH","d": "Chainlink"},
+					{"s": "COINBASE:BATETH","d": "Basic Attention Token"}
+				]},
+				{"title": "DAI","symbols": [
+					{"s": "COINBASE:ETHDAI","d": "Ether"}
+				]}
+			]
+		}
+		</script>
+	</div>
+	<div class="charts">
 		<form>
 			<fieldset>
 				<legend>Options:</legend>
