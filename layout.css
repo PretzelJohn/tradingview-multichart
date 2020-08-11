@@ -14,15 +14,8 @@ fieldset {
 	min-width: 500px;
 }
 
-.list {
+.col {
 	display: inline-block;
-	height: 95vh;
-	width: 24%;
-}
-
-.charts {
-	display: inline-block;
-	width: 74%;
 }
 
 .row {
