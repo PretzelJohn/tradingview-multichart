@@ -34,15 +34,15 @@ function setTimeInterval(x) {
 }
 
 function loadProducts() {
+	//Fetch products from REST api and sort in groups
 	var products = {"USD":[], "USDC":[], "BTC":[]};
-	const url = "https://api.pro.coinbase.com/products";
 	var xhttp = new XMLHttpRequest();
 	var res = null;
 	xhttp.onreadystatechange = function() {
 		if(this.readyState == 4 && this.status == 200)
 			res = JSON.parse(this.responseText);
 	};
-	xhttp.open("GET", url, false);
+	xhttp.open("GET", "https://api.pro.coinbase.com/products", false);
 	xhttp.send();
 	
 	for(var i = 0; i < res.length; i++) {
@@ -55,6 +55,40 @@ function loadProducts() {
 		}
 	}
 	
+	//Generate url from product list for loading left widget
+	var url = 'https://s.tradingview.com/embed-widget/market-overview/?locale=en#%7B%22colorTheme%22%3A%22dark%22%2C%22dateRange%22%3A%221d%22%2C%22showChart%22%3Atrue%2C%22width%22%3A%22100%25%22%2C%22height%22%3A%22100%25%22%2C%22largeChartUrl%22%3A%22%22%2C%22isTransparent%22%3Afalse%2C%22plotLineColorGrowing%22%3A%22rgba(25%2C%20118%2C%20210%2C%201)%22%2C%22plotLineColorFalling%22%3A%22rgba(25%2C%20118%2C%20210%2C%201)%22%2C%22gridLineColor%22%3A%22rgba(42%2C%2046%2C%2057%2C%201)%22%2C%22scaleFontColor%22%3A%22rgba(120%2C%20123%2C%20134%2C%201)%22%2C%22belowLineFillColorGrowing%22%3A%22rgba(33%2C%20150%2C%20243%2C%200.12)%22%2C%22belowLineFillColorFalling%22%3A%22rgba(33%2C%20150%2C%20243%2C%200.12)%22%2C%22symbolActiveColor%22%3A%22rgba(33%2C%20150%2C%20243%2C%200.12)%22%2C%22tabs%22%3A%5B';
+	
+	var j = 0;
+	for(var k in products) {
+		products[k].sort();
+		if(j > 0){
+			url += '%2C';
+		}
+		url += '%7B%22title%22%3A%22'+k+'%22%2C%22symbols%22%3A%5B';
+		for(var i = 0; i < products[k].length; i++) {
+			var product = products[k][i];
+			url += '%7B%22s%22%3A%22COINBASE%3A'+product.replace("-","")+'%22%7D';
+			if(i < products[k].length - 1){
+				url += '%2C';
+			} else {
+				url += '%5D%7D';
+			}
+		}
+		j += 1;
+	}
+	url += '%5D%2C%22utm_source%22%3A%22%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22market-overview%22%7D';
+	
+	var iframe = document.createElement("iframe");
+	iframe.setAttribute("scrolling", "no");
+	iframe.setAttribute("allowtransparency", "true");
+	iframe.setAttribute("frameborder", "0");
+	iframe.setAttribute("src", url);
+	iframe.style.boxsizing = "border-box";
+	iframe.style.width = "100%";
+	iframe.style.height = "95vh";
+	document.getElementById("list").appendChild(iframe);
+	
+	//Load product list as html for dropdown boxes
 	var html = '<option value="" selected="selected" disabled hidden>SELECT MARKET: </option>';
 	for(var k in products) {
 		products[k].sort();
