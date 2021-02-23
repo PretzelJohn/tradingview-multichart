@@ -7,9 +7,9 @@ var cookies = [sym0, sym1, sym2, sym3];
 
 var interval = intv.get() || 15;
 var s0 = sym0.get() || "BTCUSD";
-var s1 = sym1.get() || "XRPUSD";
+var s1 = sym1.get() || "ETHUSD";
 var s2 = sym2.get() || "XTZUSD";
-var s3 = sym3.get() || "BATUSDC";
+var s3 = sym3.get() || "LRCUSD";
 
 var a = new Widget(s0, interval, "tradingview_0");
 var b = new Widget(s1, interval, "tradingview_1");
@@ -83,13 +83,14 @@ function loadProducts() {
 	iframe.setAttribute("allowtransparency", "true");
 	iframe.setAttribute("frameborder", "0");
 	iframe.setAttribute("src", url);
-	iframe.style.boxsizing = "border-box";
 	iframe.style.width = "100%";
-	iframe.style.height = "95vh";
+	iframe.style.height = "99vh";
+    iframe.style.paddingLeft = "5px";
+    iframe.style.paddingTop = "5px";
 	document.getElementById("list").appendChild(iframe);
 	
 	//Load product list as html for dropdown boxes
-	var html = '<option value="" selected="selected" disabled hidden>SELECT MARKET: </option>';
+	var html = '';
 	for(var k in products) {
 		products[k].sort();
 		for(var i = 0; i < products[k].length; i++) {
@@ -104,16 +105,18 @@ function loadProducts() {
 const html = loadProducts();
 function loadDropbox(id) {	
 	var x = document.getElementById(id);
-	x.innerHTML = html;
+    var line0 = '<option value="" selected="selected" disabled hidden>Chart '+id.split("_")[1]+'</option>';
+    
+	x.innerHTML = line0+html;
 	x.onchange = function() {
-		setSymbol(Number(id.split("_")[1]), x.value);
+		setSymbol(Number(id.split("_")[1]-1), x.value);
 	}
 }
 
-loadDropbox("dropbox_0");
 loadDropbox("dropbox_1");
 loadDropbox("dropbox_2");
 loadDropbox("dropbox_3");
+loadDropbox("dropbox_4");
 
 
 
